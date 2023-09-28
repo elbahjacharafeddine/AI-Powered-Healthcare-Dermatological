@@ -35,7 +35,6 @@ from models import *
 app = Flask(__name__)
 
 
-
 def convert_objet_to_dict(objet, depth=1, max_depth=3):
     if depth > max_depth or not isinstance(objet, Document):
         return str(objet)
@@ -137,8 +136,6 @@ if connect:
     )
     new_user.save()
 
-
-
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
@@ -160,11 +157,14 @@ def authenticate(username, password):
 def load_user(user_id):
     return User.get_user_by_id(user_id)
 
+
 # route to test
 # route to test
 @app.route("/elbahja")
-def toRun():
-    return "Hello ELBAHJA, app is running .... "
+def elbahja():
+    return "<p>Hello ELBAHJA, app is running .... </p>"
+
+
 @app.route("/uploads/<path:filename>")
 def uploaded_file(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
@@ -210,7 +210,7 @@ def create_admin():
         nom=nom,
         prenom=prenom,
         tel=tel,
-        genre = genre,
+        genre=genre,
         role=["admin", "medecin", "patient"],
     )
 
