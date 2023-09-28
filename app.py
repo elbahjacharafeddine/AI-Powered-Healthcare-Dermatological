@@ -161,6 +161,7 @@ def load_user(user_id):
     return User.get_user_by_id(user_id)
 
 # route to test
+# route to test
 @app.route("/elbahja")
 def toRun():
     return "Hello ELBAHJA, app is running .... "
