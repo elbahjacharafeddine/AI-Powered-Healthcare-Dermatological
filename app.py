@@ -161,6 +161,9 @@ def load_user(user_id):
     return User.get_user_by_id(user_id)
 
 
+@app.route("/elbahja")
+def toRun():
+    return "Hello ELBAHJA, app is running .... "
 @app.route("/uploads/<path:filename>")
 def uploaded_file(filename):
     return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
